@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# Insert an empty line before each prompt
+PROMPT_COMMAND='echo'
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -18,6 +21,9 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+# Manage history continuously on different shell sessions
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -74,9 +80,6 @@ unset color_prompt force_color_prompt
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-
-# Set up prompt command to refresh on each command
-PROMPT_COMMAND='history -a; history -n'
 
 # Customize PS1 prompt
 PS1="$PS1\$(parse_git_branch)"
