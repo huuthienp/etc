@@ -14,7 +14,7 @@ if defined SSH_CLIENT (
   )
 )
 
-git branch 2>null | findstr /b "* " > %_temp% || set __git_branch= && goto :setprompt
+git branch 2>NUL | findstr /b "* " > %_temp% || set __git_branch= && goto :setprompt
 set /p __git_branch=<%_temp%
 set "__git_branch=%__git_branch: =%"
 set "__git_branch=%__git_branch:**=%"
