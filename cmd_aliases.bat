@@ -1,8 +1,8 @@
 @echo off
 
-doskey cd=cd $* $T call %USERPROFILE%\etc\prompt_dir.cmd
-doskey pushd=pushd $* $T call %USERPROFILE%\etc\prompt_dir.cmd
-doskey popd=popd $* $T call %USERPROFILE%\etc\prompt_dir.cmd
+doskey cd=cd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
+doskey pushd=pushd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
+doskey popd=popd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
 
 doskey ll=dir $*
 doskey ls=dir /d $*
