@@ -8,6 +8,8 @@ doskey ll=dir $*
 doskey ls=dir /d $*
 doskey less=sh -c 'less $*'
 
+if exist %EDITOR% for %%G in ("%EDITOR%") do doskey e=%%~nxG $*
+
 doskey gf=git fetch
 doskey gs=git status -sb
 doskey gl=git log --oneline
