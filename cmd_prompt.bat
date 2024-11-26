@@ -2,7 +2,7 @@
 
 set _temp=temp.txt
 
-for %%i in ("%cd%") do set "cwd=%%~nxi"
+for %%G in ("%CD%") do set "cwd=%%~nxG"
 
 if defined SSH_CLIENT (
   set "_uh=%USERNAME%@%COMPUTERNAME% "
@@ -16,7 +16,7 @@ if defined SSH_CLIENT (
 
 git branch 2>NUL | call findstr /b "* " > %_temp%
 
-rem echo errorlevel is %errorlevel%
+rem echo errorlevel is %ERRORLEVEL%
 if errorlevel 1 (set "__git_branch=")
 if errorlevel 1 goto :setprompt
 
