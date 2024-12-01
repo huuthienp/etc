@@ -6,6 +6,11 @@ doskey popd=popd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
 
 doskey ll=dir $*
 doskey ls=dir /w $*
+doskey la=dir /a:a $*
+doskey ld=dir /a:d $*
+doskey laa=where /f /t /r $* * 2^>NUL $T if ERRORLEVEL 2 echo Use '.' for current directory
+doskey ldd=dir /a:d /b /s $*
+
 doskey less=sh -c 'less $*'
 
 if exist %EDITOR% for %%G in ("%EDITOR%") do doskey e=%%~nxG $*
