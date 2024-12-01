@@ -13,7 +13,7 @@ doskey ldd=dir /a:d /b /s $*
 
 doskey less=sh -c 'less $*'
 
-if exist %EDITOR% for %%G in ("%EDITOR%") do doskey e=%%~nxG $*
+if DEFINED EDITOR doskey e=%EDITOR% $*
 
 doskey gf=git fetch
 doskey gs=git status -sb
