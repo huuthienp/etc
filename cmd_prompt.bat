@@ -30,4 +30,4 @@ if exist %__git_branch_temp% (
   del %__git_branch_temp%
   set "__git_branch_temp="
 )
-set "PROMPT=$m$_%_uh%$n:\ $e[1;34m%cwd% $+$e[00m%__git_branch% $$$s"
+set "PROMPT=$m$_%_uh%$n:\ $e[1;34m%cwd%$e[00m $+%__git_branch% $$$s"
