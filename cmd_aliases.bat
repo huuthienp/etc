@@ -5,7 +5,7 @@ doskey pushd=pushd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
 doskey popd=popd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
 
 doskey ll=dir $*
-doskey ls=dir /d $*
+doskey ls=dir /w $*
 doskey less=sh -c 'less $*'
 
 if exist %EDITOR% for %%G in ("%EDITOR%") do doskey e=%%~nxG $*
