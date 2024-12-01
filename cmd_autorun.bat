@@ -1,5 +1,6 @@
 @echo off
 
+set "~=%USERPROFILE%"
 set EDITOR=%USERPROFILE%\scoop\shims\lvim.cmd
 set PATH=%PATH%;%USERPROFILE%\scoop\apps\git\current\usr\bin
 
