@@ -2,7 +2,7 @@
 
 set "~=%USERPROFILE%"
 set "DIRCMD=/A"
-set EDITOR=%USERPROFILE%\scoop\shims\lvim.cmd
+set EDITOR=lvim
 set PATH=%PATH%;%USERPROFILE%\scoop\apps\git\current\usr\bin
 
 call %USERPROFILE%\etc\cmd_prompt.bat
