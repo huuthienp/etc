@@ -1,6 +1,9 @@
 @echo off
 SetLocal EnableDelayedExpansion
 
+for /f "delims=" %%G in ("%CD%") do set "__cd_name=%%~nG"
+title cmd ^| %__cd_name%
+
 set __git_branch_temp=".temp_branch_%RANDOM%"
 
 set "_cd=!CD:%USERPROFILE%=~!"
