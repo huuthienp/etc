@@ -5,6 +5,7 @@ set __git_branch_temp=".temp_branch_%RANDOM%"
 
 set "_cd=!CD:%USERPROFILE%=~!"
 set "_cd=%_cd:\=/%"
+set "_cd=$E[1;34m%_cd%$E[00m$S"
 
 if defined VIRTUAL_ENV_PROMPT set "_venv=$C%VIRTUAL_ENV_PROMPT%$F$S"
 
@@ -33,4 +34,4 @@ set "__git_branch=(%__git_branch%)"
 if exist %__git_branch_temp% (
   del %__git_branch_temp%
 )
-EndLocal & set "PROMPT=%_venv%%_uh%$E[1;34m%_cd%$E[00m$S$+%__git_branch% $$$s"
+EndLocal & set "PROMPT=%_venv%%_uh%%_cd%$+%__git_branch% $$$s"
