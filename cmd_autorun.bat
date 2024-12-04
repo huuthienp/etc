@@ -1,5 +1,6 @@
 @echo off
 
+title cmd
 set "~=%USERPROFILE%"
 set "DIRCMD=/A"
 set EDITOR=lvim
