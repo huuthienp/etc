@@ -15,6 +15,12 @@ doskey less=sh -c 'less $*'
 
 if DEFINED EDITOR doskey e=%EDITOR% $*
 
+doskey scb=set /p "_dummy=$*" ^<NUL ^| clip
+doskey scbf=clip ^< $1
+doskey scbl=for /f "delims=" %%G in ($1) do @set /p "_dummy=%%G" ^<NUL ^| clip
+doskey scbv=for /f "delims=" %%G in ('pwsh -c "gcb"') do @set "$*=%%G"
+doskey gcb=pwsh -c "gcb" $*
+
 doskey gf=git fetch
 doskey gs=git status -sb
 doskey gl=git log --oneline
