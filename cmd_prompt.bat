@@ -3,7 +3,8 @@ SetLocal EnableDelayedExpansion
 
 set __git_branch_temp=".temp_branch_%RANDOM%"
 
-for %%G in ("%CD%") do set "_cd=%%~nxG"
+set "_cd=!CD:%USERPROFILE%=~!"
+set "_cd=%_cd:\=/%"
 
 if defined SSH_CLIENT (
   set "_uh=%USERNAME%@%COMPUTERNAME% "
