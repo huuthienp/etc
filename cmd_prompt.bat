@@ -1,4 +1,5 @@
 @echo off
+SetLocal EnableDelayedExpansion
 
 set __git_branch_temp=".temp_branch_%RANDOM%"
 
@@ -28,6 +29,5 @@ set "__git_branch=(%__git_branch%)"
 :setprompt
 if exist %__git_branch_temp% (
   del %__git_branch_temp%
-  set "__git_branch_temp="
 )
-set "PROMPT=$m$_%_uh%$n:\ $e[1;34m%_cd%$e[00m $+%__git_branch% $$$s"
+EndLocal & set "PROMPT=$m$_%_uh%$n:\ $e[1;34m%_cd%$e[00m $+%__git_branch% $$$s"
