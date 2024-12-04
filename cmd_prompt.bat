@@ -34,4 +34,4 @@ set "__git_branch=(%__git_branch%)"
 if exist %__git_branch_temp% (
   del %__git_branch_temp%
 )
-EndLocal & set "PROMPT=%_venv%%_uh%%_cd%$+%__git_branch% $$$s"
+EndLocal & set "PROMPT=%_venv%%_uh%%_cd%$+%__git_branch%$S$$$S"
