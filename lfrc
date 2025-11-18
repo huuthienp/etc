@@ -1,4 +1,0 @@
-set info time:size
-
-cmd yankpath ${{echo %f% | clip}}
-map Yp yankpath
