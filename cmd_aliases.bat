@@ -15,8 +15,6 @@ doskey ldd=dir /a:d /b /s $*
 doskey lll=dir $* $B less
 doskey $=bash -c "$*"
 
-if DEFINED EDITOR doskey e=%EDITOR% $*
-
 doskey scb=set /p "_dummy=$*" ^<NUL ^| clip
 doskey scbf=clip ^< $1
 doskey scbl=for /f "delims=" %%G in ($1) do @set /p "_dummy=%%G" ^<NUL ^| clip
@@ -36,4 +34,10 @@ doskey gd=git diff --cached --color-words $T echo. $T git diff --color-words
 doskey gds=git diff --cached --stat $T echo. $T git diff --stat
 
 @REM More Utilities
+
+if DEFINED BROWSER doskey app=%BROWSER% --app=$* --incognito
+@REM To avoid incognito, `app example.org --`
+
+if DEFINED EDITOR doskey e=%EDITOR% $*
+
 where rclone >nul && doskey ncdu=rclone ncdu $*
