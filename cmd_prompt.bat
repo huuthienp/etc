@@ -6,8 +6,8 @@ title CMD^: %__cd_name%
 
 set __git_branch_temp=".temp_branch_%RANDOM%"
 
-set "_cd=!CD:%USERPROFILE%=~!"
-set "_cd=%_cd:\=/%"
+@REM Adjust path in prompt
+set "_cd=!CD:%USERPROFILE%=%%~%%!"
 
 rem Make path bold and blue
 if defined COLORTERM (
