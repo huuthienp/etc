@@ -2,7 +2,6 @@
 
 set "~=%USERPROFILE:\=/%"
 set "DIRCMD=/A"
-set PATH=%USERPROFILE%\scoop\apps\git\current\usr\bin;%PATH%
 
 @REM Enable color
 set "COLORTERM=truecolor"
