@@ -1,9 +1,9 @@
 @echo off
 @REM https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/doskey
 
-doskey cd=cd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
-doskey pushd=pushd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
-doskey popd=popd $* $T call %USERPROFILE%\etc\cmd_prompt.bat
+doskey cd=cd $* $T call "%~dp0\prompt"
+doskey pushd=pushd $* $T call "%~dp0\prompt"
+doskey popd=popd $* $T call "%~dp0\prompt"
 
 doskey ll=dir $*
 doskey ls=dir /w $*
