@@ -4,8 +4,6 @@ SetLocal EnableDelayedExpansion
 for /f "delims=" %%G in ("%CD%") do set "__cd_name=%%~nG"
 title CMD^: %__cd_name%
 
-set __git_branch_temp=".temp_branch_%RANDOM%"
-
 @REM Adjust path in prompt
 set "_cd=!CD:%USERPROFILE%=%%~%%!"
 
@@ -29,19 +27,18 @@ if defined SSH_CLIENT (
   )
 )
 
-git branch 2>NUL | call findstr /b "* " > %__git_branch_temp%
+git branch 2>&0 >nul
 
-rem echo errorlevel is %ERRORLEVEL%
-if errorlevel 1 (set "__git_branch=")
-if errorlevel 1 goto :setprompt
-
-set /p __git_branch=<%__git_branch_temp%
-set "__git_branch=%__git_branch: =%"
-set "__git_branch=%__git_branch:**=%"
-set "__git_branch=(%__git_branch%)"
-
-:setprompt
-if exist %__git_branch_temp% (
-  del %__git_branch_temp%
+if 0 equ %errorlevel% (
+  for /f "tokens=* usebackq" %%G in (`git branch --show-current`) do (
+    set "_git_branch=%%G"
+  )  &  @REM for-loop with command starts another cmd instance
+) else (
+  set _git_branch=
 )
-EndLocal & set "PROMPT=%_venv%%_uh%%_cd%$+%__git_branch%$G$S"
+
+if defined _git_branch (
+  set "_git_branch=(%_git_branch%) "
+)  &  @REM _git_branch is set
+
+EndLocal & set "prompt=%_venv%%_uh%%_cd%$+%_git_branch%$G$S"
